@@ -41,4 +41,10 @@ def getFromTable(table,filters):
     # all_tables[table].to_dict()
     this_table = this_table.reset_index()
     this_table = this_table[:5]
-    return ({"status_code":200,"message":this_table.T.to_dict()})
+
+    mass = []
+    dop = mass.append
+    dd = this_table.T.to_dict()
+    for i in (range(len(dd))):
+        dop(dd[i])
+    return ({"status_code":200,"message":mass})
