@@ -47,4 +47,4 @@ def getFromTable(table,filters):
     dd = this_table.T.to_dict()
     for i in (range(len(dd))):
         dop(dd[i])
-    return ({"status_code":200,"message":json.dumps(mass)})
+    return ({"status_code":200,"message":json.dumps(mass,default=str)})

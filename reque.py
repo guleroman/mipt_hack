@@ -6,10 +6,10 @@ url = "http://194.67.112.246/api/v1/"
 
 # payload = "{\"table\": \"01.COLs.xlsx\",\"filters\": \"{\"ResourceGroupIds\":\"G_OTGRH\"}\"}"
 payload = {
-    "table":"01.COLs.xlsx",
+    "table":"02.Supply Orders.xlsx",
     "filters":{
         # "DeliveryType":"РЛН",
-        "HasSalesBudgetReservation":False
+        # "HasSalesBudgetReservation":False
     }
 }
 headers = {'content-type': 'application/json'}
