@@ -34,7 +34,10 @@ def getFromTable(table,filters):
         values = list(filters.values())
         for i in range(len(keys)):
             try:
-                this_table = this_table[this_table[keys[i]] == values[i]]
+                if (keys[i] == "Id") and (table == "03.Operations.xlsx"):
+                    this_table = this_table[this_table[keys[i]].str.contains(values[i])]
+                else:
+                    this_table = this_table[this_table[keys[i]] == values[i]]
             except:
                 return ({"status_code":400,"message":f"table:{table} not consist filter-column:{keys[i]}"})
 
