@@ -24,12 +24,20 @@ for i in onlyfiles:
     print('ok')
 
 def getFromTable(table,filters):
-    this_table = all_tables[table]
+    try:
+        this_table = all_tables[table]
+    except:
+        return ({"status_code":400,"message":"not correct name for table (example - 01.COLs.xlsx)"})
+
     if filters is not None:
         keys = list(filters.keys())
         values = list(filters.values())
         for i in range(len(keys)):
-            this_table = this_table[this_table[keys[i]] == values[i]]
+            try:
+                this_table = this_table[this_table[keys[i]] == values[i]]
+            except:
+                return ({"status_code":400,"message":f"table:{table} not consist filter-column:{keys[i]}"})
+
     # all_tables[table].to_dict()
     this_table = this_table.reset_index()
     return ({"status_code":200,"message":this_table.T.to_dict()})
