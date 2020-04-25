@@ -121,5 +121,5 @@ def get_procents(strr):
     try:
         proc = round(((av_fullsec - fr_fullsec) / av_fullsec * 100))
     except ZeroDivisionError:
-        proc = 0
+        proc = -1
     return(proc)
