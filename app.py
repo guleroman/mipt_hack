@@ -18,7 +18,7 @@ def api():
         
     answer = getFromTable(table,filters)
     if answer['status_code'] != 200:
-        return jsonify({"status_code": 400,"error":"not find this"})
+        return jsonify({"status_code": 400,"error":answer['message']})
     else:
         data = answer['message']
 
