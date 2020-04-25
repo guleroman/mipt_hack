@@ -1,10 +1,15 @@
 import flask
 from flask import render_template, request, send_file, jsonify, make_response, json,redirect
-app = flask.Flask(__name__)
 from data import getFromTable
+from flask_cors import CORS, cross_origin
+
+app = flask.Flask(__name__)
+CORS(app)
+
+
 
 @app.route("/api/v1/", methods=(['POST']))
-# @app.route("/reset/<kod>.html", methods=('GET', 'POST'))
+@cross_origin(origins="*", methods=['POST','OPTIONS'], allow_headers="*")
 def api():
     try:
         payload = json.loads(request.data.decode('utf-8'))
@@ -26,4 +31,4 @@ def api():
     response.headers.set('Content-Type', 'application/json')
     return response
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080,debug=True)
+    app.run(host='0.0.0.0', port=80,debug=True)
