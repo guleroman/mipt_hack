@@ -1,7 +1,7 @@
 import requests
 import json
 from pprint import pprint
-url = "http://194.67.112.246:8080/api/v1/"
+url = "http://194.67.112.246/api/v1/"
 
 
 # payload = "{\"table\": \"01.COLs.xlsx\",\"filters\": \"{\"ResourceGroupIds\":\"G_OTGRH\"}\"}"
