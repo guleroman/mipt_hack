@@ -5,3 +5,4 @@ flask_cors
 requests
 pandas
 datetime
+xlrd
