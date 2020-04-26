@@ -77,7 +77,7 @@ def getProcents(data):
       r_groupe = []
       nnd = new_df[new_df['ceh_name'] == name]
       for i in range(len(nnd)):
-        r_groupe.append({"g_name":nnd.iloc[i]['groupe_name'],"t_proc":nnd.iloc[i]['t_proc']})
+        r_groupe.append({"g_name":nnd.iloc[i]['groupe_name'],"t_proc":str(nnd.iloc[i]['t_proc'])})
       mass.append({"ceh_name":name,"r_groupe":r_groupe,"t_proc":json.dumps(round(abs(nnd['t_proc'].mean())),default=str)})
 
     t_proc = round(abs(new_df['t_proc'].mean()))
