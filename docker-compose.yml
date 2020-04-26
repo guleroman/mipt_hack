@@ -32,7 +32,7 @@ services:
       # - 443:443
     volumes:
       - ./conf.d:/etc/nginx/conf.d
-      - ./build:/var/www
+      - ./plant/build:/var/www
       # - ./data/certbot/conf:/etc/letsencrypt
       # - ./data/certbot/www:/var/www/certbot
     networks:
