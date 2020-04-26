@@ -1,7 +1,7 @@
 import requests
 import json
 from pprint import pprint
-url = "http://194.67.112.246/api/v4/"
+url = "http://194.67.112.246/api/v3/"
 
 
 
@@ -14,7 +14,7 @@ url = "http://194.67.112.246/api/v4/"
 # }
 
 payload = {
-    "data":"2020-04-29",
+    "group":"G_APGKRD",
 }
 
 headers = {'content-type': 'application/json'}

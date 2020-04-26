@@ -64,6 +64,7 @@ def getProcentsGroup(group):
         return ({"status_code":400,"message":"not find groups_proc.xlsx table"})
 
     this_table = this_table[this_table['time'] > '2020-05-04']
+    this_table = this_table.reset_index()
     time = this_table['time']
     procs = this_table[group]
     r_groupe_procent = []
