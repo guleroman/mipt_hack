@@ -1,7 +1,7 @@
 import requests
 import json
 from pprint import pprint
-url = "http://194.67.112.246/api/v3/"
+url = "http://194.67.112.246/api/v1/"
 
 
 
@@ -13,9 +13,7 @@ url = "http://194.67.112.246/api/v3/"
 #     }
 # }
 
-payload = {
-    "group":"G_APGKRD",
-}
+payload = {"table":"02.Supply Orders.xlsx","filters":{"DownstreamCustomerOrders":"40372956/3"}}
 
 headers = {'content-type': 'application/json'}
 
