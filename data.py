@@ -72,6 +72,23 @@ def getProcentsGroup(group):
     
     return ({"status_code":200,"message":json.dumps(r_groupe_procent)})
 
+def getProcentsCehToGraph(data):
+    try:
+        this_table = all_tables['cehs_proc.xlsx']
+        pass
+    except:
+        return ({"status_code":400,"message":"not find cehs_proc.xlsx table"})
+
+    # this_table = this_table[group]
+    this_table[this_table['time'] > data][:7]
+    this_table = this_table.reset_index()
+    mass = []
+    dop = mass.append
+    dd = this_table.T.to_dict()
+    for i in (range(len(dd))):
+        dop(dd[i])
+    return ({"status_code":200,"message":json.dumps(mass,default=str)})
+
 
 def getProcents(data):
     try:

@@ -1,21 +1,21 @@
 import requests
 import json
 from pprint import pprint
-url = "http://194.67.112.246/api/v3/"
+url = "http://194.67.112.246/api/v1/"
 
 
-
-# payload = {
-#     "table":"03.Operations.xlsx",
-#     "filters":{
-#         "Id":"Flexi-0707"
-#         # "HasSalesBudgetReservation":False
-#     }
-# }
 
 payload = {
-    "group":"G_ANGC3H",
+    "table":"03.Operations.xlsx",
+    "filters":{
+        "Id":"Flexi-0707"
+        # "HasSalesBudgetReservation":False
+    }
 }
+
+# payload = {
+#     "group":"G_ANGC3H",
+# }
 
 headers = {'content-type': 'application/json'}
 
