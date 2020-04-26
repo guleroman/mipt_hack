@@ -58,19 +58,32 @@ def getFromTable(table,filters):
 def getProcents(data):
     try:
         this_table = all_tables['04.ResourceGroupPeriod.xlsx']
+        pass
     except:
         return ({"status_code":400,"message":"not find 04.ResourceGroupPeriod.xlsx table"})
 
     this_table = this_table[this_table['Start'] == data]
 
-    r_groupe_procent = {}
+    r_groupe_procent = []
     for i in range(len(this_table)):
         strr = this_table.iloc[i]
         proc = get_procents(strr)
-        r_groupe_procent.update({this_table.iloc[i]['ResourceGroupID']:proc})
+        r_groupe_procent.append({"ceh_name":this_table.iloc[i]['Ceh'],"groupe_name":this_table.iloc[i]['ResourceGroupID'],"t_proc":proc})
+
+    new_df = pd.DataFrame(r_groupe_procent)
+    mass = []
+    names_cehs = list(set(new_df['ceh_name']))
+    for name in names_cehs:
+      r_groupe = []
+      nnd = new_df[new_df['ceh_name'] == name]
+      for i in range(len(nnd)):
+        r_groupe.append({"g_name":nnd.iloc[i]['groupe_name'],"t_proc":nnd.iloc[i]['t_proc']})
+      mass.append({"ceh_name":name,"r_groupe":r_groupe,"t_proc":round(abs(nnd['t_proc'].mean()))})
+
+    t_proc = round(abs(new_df['t_proc'].mean()))
 
     
-    return ({"status_code":200,"message":json.dumps(r_groupe_procent)})
+    return ({"status_code":200,"message":{"cehs":mass,"t_proc":t_proc}})
 
 
 def get_procents(strr):

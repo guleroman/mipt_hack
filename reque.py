@@ -8,7 +8,7 @@ url = "http://194.67.112.246/api/v2/"
 # payload = {
 #     "table":"03.Operations.xlsx",
 #     "filters":{
-#         "Id":"Flexi-07021"
+#         "Id":"Flexi-0707"
 #         # "HasSalesBudgetReservation":False
 #     }
 # }
