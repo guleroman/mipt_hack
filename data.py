@@ -19,6 +19,8 @@ all_tables = {}
 # t_04 = pd.read_excel(join(path, '04.ResourceGroupPeriod.xlsx'),nrows=10)
 # t_05 = pd.read_excel(join(path, '05.Routrings.xlsx'),nrows=10)
 # t_06 = pd.read_excel(join(path, '06.RoutringSteps.xlsx'),nrows=10)
+# cesh_proc.xlsx
+# group_proc.xlsx
 
 for i in onlyfiles:
     all_tables.update({i:pd.read_excel(join(path, i),index=False)})
@@ -53,6 +55,22 @@ def getFromTable(table,filters):
     for i in (range(len(dd))):
         dop(dd[i])
     return ({"status_code":200,"message":json.dumps(mass,default=str)})
+
+def getProcentsGroup(group):
+    try:
+        this_table = all_tables['group_proc.xlsx']
+        pass
+    except:
+        return ({"status_code":400,"message":"not find 04.ResourceGroupPeriod.xlsx table"})
+
+    # this_table = this_table[group]
+    time = this_table['time']
+    procs = this_table[group]
+    r_groupe_procent = []
+    for i in range(len(this_table)):
+        r_groupe_procent.append({time[i]:procs[i]})
+    
+    return ({"status_code":200,"message":r_groupe_procent})
 
 
 def getProcents(data):
