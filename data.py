@@ -83,7 +83,7 @@ def getProcents(data):
     t_proc = round(abs(new_df['t_proc'].mean()))
 
     
-    return ({"status_code":200,"message":{"cehs":mass,"t_proc":t_proc}})
+    return ({"status_code":200,"message":{"cehs":json.dumps(mass,default=str),"t_proc":json.dumps(t_proc,default=str)}})
 
 
 def get_procents(strr):
