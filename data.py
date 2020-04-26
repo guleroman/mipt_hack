@@ -70,7 +70,7 @@ def getProcentsGroup(group):
     for i in range(len(this_table)):
         r_groupe_procent.append({time[i]:procs[i]})
     
-    return ({"status_code":200,"message":r_groupe_procent})
+    return ({"status_code":200,"message":json.dumps(r_groupe_procent)})
 
 
 def getProcents(data):
