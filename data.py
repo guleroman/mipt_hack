@@ -37,6 +37,7 @@ def getFromTable(table,filters):
             try:
                 if (keys[i] == "Id") and (table == "03.Operations.xlsx"):
                     this_table = this_table[this_table[keys[i]].str.contains(values[i])]
+                    this_table = this_table.sort_values('End')
                 else:
                     this_table = this_table[this_table[keys[i]] == values[i]]
             except:

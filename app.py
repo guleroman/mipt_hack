@@ -52,5 +52,10 @@ def api2():
     response.headers.set('Content-Type', 'application/json')
     return response
 
+# @app.route("/", methods=('GET','OPTIONS'))
+# @cross_origin(origins="*", methods=['POST','OPTIONS','GET'], allow_headers="*")
+# def index():
+#     return render_template('index.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5090,debug=False)

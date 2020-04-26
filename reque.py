@@ -14,7 +14,7 @@ url = "http://194.67.112.246/api/v2/"
 # }
 
 payload = {
-    "data":"2020-05-04",
+    "data":"2020-05-10",
 }
 
 headers = {'content-type': 'application/json'}
