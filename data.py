@@ -80,7 +80,7 @@ def getProcentsCehToGraph(data):
         return ({"status_code":400,"message":"not find cehs_proc.xlsx table"})
 
     # this_table = this_table[group]
-    this_table[this_table['time'] > data][:7]
+    this_table = this_table[this_table['time'] > data][:7]
     this_table = this_table.reset_index()
     mass = []
     dop = mass.append
