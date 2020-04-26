@@ -63,7 +63,7 @@ def getProcentsGroup(group):
     except:
         return ({"status_code":400,"message":"not find groups_proc.xlsx table"})
 
-    # this_table = this_table[group]
+    this_table = this_table[this_table['time'] > '2020-05-04']
     time = this_table['time']
     procs = this_table[group]
     r_groupe_procent = []
@@ -78,6 +78,23 @@ def getProcentsCehToGraph(data):
         pass
     except:
         return ({"status_code":400,"message":"not find cehs_proc.xlsx table"})
+
+    # this_table = this_table[group]
+    this_table = this_table[this_table['time'] > data][:7]
+    this_table = this_table.reset_index()
+    mass = []
+    dop = mass.append
+    dd = this_table.T.to_dict()
+    for i in (range(len(dd))):
+        dop(dd[i])
+    return ({"status_code":200,"message":json.dumps(mass,default=str)})
+
+def getOperations(data):
+    try:
+        this_table = all_tables['03.Operations.xlsx']
+        pass
+    except:
+        return ({"status_code":400,"message":"not find 03.Operations.xlsx table"})
 
     # this_table = this_table[group]
     this_table = this_table[this_table['time'] > data][:7]
