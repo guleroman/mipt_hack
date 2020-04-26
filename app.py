@@ -60,10 +60,6 @@ def api3():
         group = payload['group']
     except:
         return jsonify({"status_code": 400,"error":"incorrect Request"})
-    # try:
-    #     filters = payload['filters'] 
-    # except:
-    #     filters = None
         
     answer = getProcentsGroup(group)
     if answer['status_code'] != 200:

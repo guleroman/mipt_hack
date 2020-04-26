@@ -20,7 +20,7 @@ all_tables = {}
 # t_05 = pd.read_excel(join(path, '05.Routrings.xlsx'),nrows=10)
 # t_06 = pd.read_excel(join(path, '06.RoutringSteps.xlsx'),nrows=10)
 # cesh_proc.xlsx
-# group_proc.xlsx
+# groups_proc.xlsx
 
 for i in onlyfiles:
     all_tables.update({i:pd.read_excel(join(path, i),index=False)})
@@ -58,10 +58,10 @@ def getFromTable(table,filters):
 
 def getProcentsGroup(group):
     try:
-        this_table = all_tables['group_proc.xlsx']
+        this_table = all_tables['groups_proc.xlsx']
         pass
     except:
-        return ({"status_code":400,"message":"not find 04.ResourceGroupPeriod.xlsx table"})
+        return ({"status_code":400,"message":"not find groups_proc.xlsx table"})
 
     # this_table = this_table[group]
     time = this_table['time']
