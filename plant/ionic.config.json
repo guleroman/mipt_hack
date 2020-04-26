@@ -1,0 +1,7 @@
+{
+  "name": "plant",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
